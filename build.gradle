@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.0'
+    id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'me.gaeng'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Spring Boot 의존성
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter'
+
+    // 테스트 의존성
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // Lombok 의존성
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // Spring Boot JPA 의존성 추가
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // H2, MySQL, PostgreSQL 등 데이터베이스에 맞는 의존성 추가
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+
+    // 데이터베이스 드라이버 (여기서는 H2 예시)
+    runtimeOnly 'com.h2database:h2'
+}
+test {
+    useJUnitPlatform()
+}
